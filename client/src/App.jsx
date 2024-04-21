@@ -11,6 +11,7 @@ import About from "./pages/About";
 import Profile from "./pages/Profile";
 import Header from "./components/Header";
 import Layout from "./Layout";
+import PrivateRoute from "./components/PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -34,8 +35,14 @@ const router = createBrowserRouter([
         element: <About />,
       },
       {
-        path: "/profile",
-        element: <Profile />,
+        path: "/",
+        element: <PrivateRoute />,
+        children:[
+          {
+            path:"/profile",
+            element:<Profile/>
+          }
+        ]
       },
     ],
   },
