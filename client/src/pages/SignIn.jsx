@@ -7,6 +7,7 @@ import {
   signInFailure,
   signInSuccess,
 } from "../redux/user/userSlice";
+import OAuth from "../components/OAuth";
 
 function SignIn() {
   const [formData, setFormData] = useState({});
@@ -44,7 +45,7 @@ function SignIn() {
   return (
     <div className="p-3 max-w-lg mx-auto">
       <h1 className="text-3xl text-center font-semibold my-7">Sign In</h1>
-      <form onSubmit={handleSubmit} className="flex flex-col gap-4 ">
+      <form onSubmit={handleSubmit} className="flex flex-col gap-4">
         <input
           type="enail"
           placeholder="email"
@@ -66,6 +67,7 @@ function SignIn() {
         >
           {loading ? "Loading..." : "Sign In"}
         </button>
+        <OAuth />
       </form>
       <div className="flex gap-2 m-5">
         <p>Dont have an account?</p>
