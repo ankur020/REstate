@@ -12,6 +12,7 @@ import Profile from "./pages/Profile";
 import Header from "./components/Header";
 import Layout from "./Layout";
 import PrivateRoute from "./components/PrivateRoute";
+import CreateListing from "./pages/CreateListing";
 
 const router = createBrowserRouter([
   {
@@ -37,12 +38,22 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <PrivateRoute />,
-        children:[
+        children: [
           {
-            path:"/profile",
-            element:<Profile/>
-          }
-        ]
+            path: "/profile",
+            element: <Profile />,
+          },
+        ],
+      },
+      {
+        path: "/",
+        element: <PrivateRoute />,
+        children: [
+          {
+            path: "/create-listing",
+            element: <CreateListing />,
+          },
+        ],
       },
     ],
   },
