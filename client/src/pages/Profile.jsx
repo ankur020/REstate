@@ -116,6 +116,22 @@ function Profile() {
     }
   };
 
+  const handleLisitngDelete = async (id) => {
+    try {
+      const res = await fetch(`/api/listing/delete/${id}`, {
+        method: "DELETE",
+      });
+      const data = await res.json();
+      if (data.success === false) {
+        setShowListingErr(data.message);
+        return;
+      }
+      setUserListings((prev) => prev.filter((list) => list._id !== id));
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   useEffect(() => {
     if (file) {
       handleFileUpload(file);
@@ -249,7 +265,12 @@ function Profile() {
                 <p>{list.name}</p>
               </Link>
               <div className="flex gap-4 items-center">
-                <button className="text-red-700 uppercase">Delete</button>
+                <button
+                  onClick={() => handleLisitngDelete(list._id)}
+                  className="text-red-700 uppercase"
+                >
+                  Delete
+                </button>
                 <button className="text-green-700 uppercase">Edit</button>
               </div>
             </div>
