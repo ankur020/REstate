@@ -14,6 +14,7 @@ import Layout from "./Layout";
 import PrivateRoute from "./components/PrivateRoute";
 import CreateListing from "./pages/CreateListing";
 import UpdateListing from "./pages/UpdateListing";
+import Listing from "./pages/Listing";
 
 const router = createBrowserRouter([
   {
@@ -65,6 +66,10 @@ const router = createBrowserRouter([
             element: <UpdateListing />,
           },
         ],
+      },
+      {
+        path: "/listing/:id",
+        element: <Listing />,
       },
     ],
   },
