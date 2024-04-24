@@ -13,6 +13,7 @@ import Header from "./components/Header";
 import Layout from "./Layout";
 import PrivateRoute from "./components/PrivateRoute";
 import CreateListing from "./pages/CreateListing";
+import UpdateListing from "./pages/UpdateListing";
 
 const router = createBrowserRouter([
   {
@@ -52,6 +53,16 @@ const router = createBrowserRouter([
           {
             path: "/create-listing",
             element: <CreateListing />,
+          },
+        ],
+      },
+      {
+        path: "/",
+        element: <PrivateRoute />,
+        children: [
+          {
+            path: "/update-listing/:id",
+            element: <UpdateListing />,
           },
         ],
       },
