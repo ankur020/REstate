@@ -8,6 +8,8 @@ import cookieParser from "cookie-parser";
 import path from "path";
 dotenv.config();
 
+const port = process.env.PORT || 4000;
+
 mongoose
   .connect(process.env.MONGO_URI)
   .then(() => {
@@ -24,8 +26,8 @@ app.use(express.json());
 
 app.use(cookieParser());
 
-app.listen(3000, () => {
-  console.log("Server running on port 3000!!");
+app.listen(port, () => {
+  console.log(`Server running on port ${port}!!`);
 });
 
 app.use("/api/user", userRouter);
